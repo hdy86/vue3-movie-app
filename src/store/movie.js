@@ -1,6 +1,8 @@
 import axios from 'axios'
 import _uniqBy from 'lodash/uniqBy'
 
+const _defaultMessage = 'Search for the movie title!'
+
 export default {
   // module, 현재 파일(movie.js)을 Store 모듈로 활용하려면 다음 옵션이 필요
   namespaced: true,
@@ -8,7 +10,7 @@ export default {
   // data, 상태(State)는 함수로 만들어서 객체 데이터를 반환해야 가변 이슈(데이터 불변성)가 발생하지 않음
   state: () => ({
     movies: [],
-    message: 'Search for the movie title!',
+    message: _defaultMessage,
     loading: false,
     theMovie: {}
   }),
@@ -26,6 +28,8 @@ export default {
     },
     resetMovies(state) {
       state.movies = []
+      state.message = _defaultMessage
+      state.loading = false
     }
   },
   actions: { // 비동기, 변이가 아닌 나머지 모든 로직을 관리
