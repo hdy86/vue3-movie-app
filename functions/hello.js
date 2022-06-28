@@ -1,3 +1,5 @@
+// http://localhost:8888/.netlify/functions/hello
+// nodeJs 기반
 exports.handler = async function(event, context) {
   return {
     statusCode: 200,
